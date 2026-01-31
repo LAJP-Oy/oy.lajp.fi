@@ -1,0 +1,11 @@
+// LAJP Oy Website Styles
+// Main entry point for SCSS compilation
+
+// Import partials
+@import "variables";
+@import "typography";
+@import "layout";
+@import "components";
+
+// Google Fonts import
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');

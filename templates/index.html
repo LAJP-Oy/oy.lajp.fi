@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}{{ section.title }} - {{ config.title }}{% endblock title %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero section">
+    <div class="container">
+        <h1 class="hero-title">{{ section.title }}</h1>
+        <p class="hero-subtitle">{{ section.description }}</p>
+        <div class="hero-actions">
+            <a href="{{ config.base_url }}{% if lang == 'fi' %}/fi{% endif %}/contact/" class="btn btn-primary">
+                {{ trans(key="nav_contact", lang=lang) }}
+            </a>
+            <a href="{{ config.base_url }}{% if lang == 'fi' %}/fi{% endif %}/about/" class="btn btn-secondary">
+                {{ trans(key="nav_about", lang=lang) }}
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="section section-alt">
+    <div class="container">
+        <h2 class="text-center mb-2xl">{{ section.extra.services_title | default(value="Our Services") }}</h2>
+        <div class="grid grid-3">
+            {% if section.extra.services %}
+                {% for service in section.extra.services %}
+                <div class="card service-card">
+                    <div class="service-icon">{{ service.icon }}</div>
+                    <h3>{{ service.title }}</h3>
+                    <p class="card-text">{{ service.description }}</p>
+                </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- About Teaser Section -->
+<section class="section">
+    <div class="container container-narrow text-center">
+        <h2>{{ section.extra.about_title | default(value="About Us") }}</h2>
+        <p class="lead">{{ section.extra.about_text | default(value="") }}</p>
+        <a href="{{ config.base_url }}{% if lang == 'fi' %}/fi{% endif %}/about/" class="btn btn-secondary mt-lg">
+            {{ trans(key="read_more", lang=lang) }}
+        </a>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section section-alt">
+    <div class="container container-narrow text-center">
+        <h2>{{ section.extra.cta_title | default(value="Ready to Start?") }}</h2>
+        <p class="lead">{{ section.extra.cta_text | default(value="") }}</p>
+        <a href="{{ config.base_url }}{% if lang == 'fi' %}/fi{% endif %}/contact/" class="btn btn-primary mt-lg">
+            {{ trans(key="nav_contact", lang=lang) }}
+        </a>
+    </div>
+</section>
+{% endblock content %}

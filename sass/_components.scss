@@ -1,0 +1,399 @@
+// Component styles
+
+// Buttons
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-md $spacing-xl;
+  font-family: $font-body;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  line-height: 1;
+  text-decoration: none;
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  transition: all $transition-normal;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+.btn-primary {
+  background-color: $color-accent;
+  color: $color-text-inverse;
+
+  &:hover {
+    background-color: darken($color-accent, 8%);
+    color: $color-text-inverse;
+  }
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: $color-primary;
+  border: 2px solid $color-primary;
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-text-inverse;
+  }
+}
+
+.btn-small {
+  padding: $spacing-sm $spacing-md;
+  font-size: $font-size-sm;
+}
+
+// Cards
+.card {
+  background-color: $color-background;
+  border-radius: $border-radius-lg;
+  padding: $spacing-xl;
+  box-shadow: $box-shadow;
+  transition: box-shadow $transition-normal, transform $transition-normal;
+
+  &:hover {
+    box-shadow: $box-shadow-lg;
+  }
+}
+
+.card-title {
+  font-size: $font-size-xl;
+  margin-bottom: $spacing-md;
+}
+
+.card-text {
+  color: $color-text-light;
+  margin-bottom: $spacing-md;
+}
+
+// Service cards
+.service-card {
+  text-align: center;
+  padding: $spacing-2xl;
+
+  .service-icon {
+    font-size: $font-size-4xl;
+    margin-bottom: $spacing-lg;
+  }
+
+  h3 {
+    margin-bottom: $spacing-md;
+  }
+}
+
+// Header / Navigation
+.header {
+  background-color: $color-primary;
+  padding: $spacing-md 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-inverse;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+
+  &:hover {
+    color: $color-text-inverse;
+    opacity: 0.9;
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+
+  @media (max-width: $breakpoint-md) {
+    display: none;
+  }
+}
+
+.nav-link {
+  color: $color-text-inverse;
+  text-decoration: none;
+  font-weight: $font-weight-medium;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius;
+  transition: background-color $transition-fast;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: $color-text-inverse;
+  }
+
+  &.active {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+}
+
+// Language switcher
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  margin-left: $spacing-lg;
+  padding-left: $spacing-lg;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.lang-link {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius;
+  transition: all $transition-fast;
+
+  &:hover {
+    color: $color-text-inverse;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  &.active {
+    color: $color-text-inverse;
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+}
+
+// Mobile nav
+.mobile-nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: $color-text-inverse;
+  font-size: $font-size-2xl;
+  cursor: pointer;
+  padding: $spacing-sm;
+
+  @media (max-width: $breakpoint-md) {
+    display: block;
+  }
+}
+
+.mobile-nav {
+  display: none;
+
+  @media (max-width: $breakpoint-md) {
+    &.open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: $color-primary;
+      padding: $spacing-lg;
+      gap: $spacing-sm;
+
+      .nav-link {
+        display: block;
+        padding: $spacing-md;
+      }
+
+      .lang-switcher {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: none;
+        padding-top: $spacing-md;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+    }
+  }
+}
+
+// Footer
+.footer {
+  background-color: $color-primary;
+  color: $color-text-inverse;
+  padding: $spacing-2xl 0;
+  margin-top: auto;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+
+  @media (min-width: $breakpoint-md) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.footer-links {
+  display: flex;
+  gap: $spacing-lg;
+
+  a {
+    color: rgba(255, 255, 255, 0.8);
+
+    &:hover {
+      color: $color-text-inverse;
+    }
+  }
+}
+
+.footer-copyright {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: $font-size-sm;
+}
+
+// Hero section
+.hero {
+  padding: $spacing-4xl 0;
+  text-align: center;
+
+  @media (min-width: $breakpoint-md) {
+    padding: $spacing-4xl 0 $spacing-4xl;
+  }
+}
+
+.hero-title {
+  margin-bottom: $spacing-lg;
+}
+
+.hero-subtitle {
+  font-size: $font-size-xl;
+  color: $color-text-light;
+  margin-bottom: $spacing-2xl;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+  justify-content: center;
+}
+
+// Blog styles
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-item {
+  padding: $spacing-xl 0;
+  border-bottom: 1px solid $color-border;
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.post-title {
+  margin-bottom: $spacing-sm;
+
+  a {
+    color: $color-primary;
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+}
+
+.post-meta {
+  font-size: $font-size-sm;
+  color: $color-text-light;
+  margin-bottom: $spacing-md;
+}
+
+.post-excerpt {
+  color: $color-text-light;
+}
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  margin-top: $spacing-md;
+}
+
+.tag {
+  display: inline-block;
+  background-color: $color-background-alt;
+  color: $color-text-light;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius;
+  font-size: $font-size-sm;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $color-secondary;
+    color: $color-primary;
+  }
+}
+
+// Page content
+.page-header {
+  padding: $spacing-3xl 0 $spacing-xl;
+  text-align: center;
+  background-color: $color-background-alt;
+}
+
+.page-content {
+  padding: $spacing-3xl 0;
+
+  h2 {
+    margin-top: $spacing-2xl;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+// Contact info
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-md;
+
+  .contact-icon {
+    font-size: $font-size-xl;
+    color: $color-accent;
+    min-width: 2rem;
+  }
+
+  .contact-label {
+    font-weight: $font-weight-semibold;
+    color: $color-primary;
+    display: block;
+    margin-bottom: $spacing-xs;
+  }
+
+  .contact-value {
+    color: $color-text;
+  }
+}

@@ -1,0 +1,153 @@
+// Typography styles
+
+html {
+  font-size: 16px;
+
+  @media (min-width: $breakpoint-lg) {
+    font-size: 18px;
+  }
+}
+
+body {
+  font-family: $font-body;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-normal;
+  color: $color-text;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  color: $color-primary;
+  margin-bottom: $spacing-md;
+}
+
+h1 {
+  font-size: $font-size-4xl;
+
+  @media (min-width: $breakpoint-md) {
+    font-size: $font-size-5xl;
+  }
+}
+
+h2 {
+  font-size: $font-size-3xl;
+
+  @media (min-width: $breakpoint-md) {
+    font-size: $font-size-4xl;
+  }
+}
+
+h3 {
+  font-size: $font-size-2xl;
+}
+
+h4 {
+  font-size: $font-size-xl;
+}
+
+h5 {
+  font-size: $font-size-lg;
+}
+
+h6 {
+  font-size: $font-size-base;
+}
+
+p {
+  margin-bottom: $spacing-md;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+a {
+  color: $color-accent;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: darken($color-accent, 10%);
+  }
+}
+
+strong, b {
+  font-weight: $font-weight-semibold;
+}
+
+code, pre {
+  font-family: $font-code;
+  font-size: $font-size-sm;
+}
+
+code {
+  background-color: $color-background-alt;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius;
+}
+
+pre {
+  background-color: $color-primary;
+  color: $color-text-inverse;
+  padding: $spacing-lg;
+  border-radius: $border-radius-lg;
+  overflow-x: auto;
+  margin-bottom: $spacing-lg;
+
+  code {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+  }
+}
+
+blockquote {
+  border-left: 4px solid $color-accent;
+  padding-left: $spacing-lg;
+  margin: $spacing-lg 0;
+  font-style: italic;
+  color: $color-text-light;
+}
+
+ul, ol {
+  margin-bottom: $spacing-md;
+  padding-left: $spacing-xl;
+
+  li {
+    margin-bottom: $spacing-sm;
+  }
+}
+
+.text-sm {
+  font-size: $font-size-sm;
+}
+
+.text-lg {
+  font-size: $font-size-lg;
+}
+
+.text-xl {
+  font-size: $font-size-xl;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-light {
+  color: $color-text-light;
+}
+
+.text-accent {
+  color: $color-accent;
+}
+
+.lead {
+  font-size: $font-size-xl;
+  line-height: $line-height-relaxed;
+  color: $color-text-light;
+}

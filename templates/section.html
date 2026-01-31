@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}{{ section.title }} - {{ config.title }}{% endblock title %}
+{% block description %}{{ section.description | default(value=config.description) }}{% endblock description %}
+
+{% block content %}
+<div class="page-header">
+    <div class="container container-narrow">
+        <h1>{{ section.title }}</h1>
+        {% if section.description %}
+        <p class="lead">{{ section.description }}</p>
+        {% endif %}
+    </div>
+</div>
+
+<div class="page-content">
+    <div class="container container-narrow">
+        {{ section.content | safe }}
+
+        {% if section.pages %}
+        <ul class="post-list mt-2xl">
+            {% for page in section.pages %}
+            <li class="post-item">
+                <h2 class="post-title">
+                    <a href="{{ page.permalink }}">{{ page.title }}</a>
+                </h2>
+                {% if page.date %}
+                <div class="post-meta">
+                    {{ trans(key="posted_on", lang=lang) }} {{ page.date | date(format="%B %d, %Y") }}
+                </div>
+                {% endif %}
+                {% if page.description %}
+                <p class="post-excerpt">{{ page.description }}</p>
+                {% endif %}
+                {% if page.taxonomies.tags %}
+                <div class="post-tags">
+                    {% for tag in page.taxonomies.tags %}
+                    <a href="{{ config.base_url }}{% if lang == 'fi' %}/fi{% endif %}/tags/{{ tag | slugify }}/" class="tag">{{ tag }}</a>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} - {{ config.title }}{% endblock title %}
+{% block description %}{{ page.description | default(value=config.description) }}{% endblock description %}
+
+{% block content %}
+<article>
+    <div class="page-header">
+        <div class="container container-narrow">
+            <h1>{{ page.title }}</h1>
+            {% if page.date %}
+            <div class="post-meta mt-md">
+                {{ trans(key="posted_on", lang=lang) }} {{ page.date | date(format="%B %d, %Y") }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="page-content">
+        <div class="container container-narrow">
+            {{ page.content | safe }}
+
+            {% if page.taxonomies.tags %}
+            <div class="post-tags mt-2xl">
+                <strong>{{ trans(key="tagged_with", lang=lang) }}:</strong>
+                {% for tag in page.taxonomies.tags %}
+                <a href="{{ config.base_url }}{% if lang == 'fi' %}/fi{% endif %}/tags/{{ tag | slugify }}/" class="tag">{{ tag }}</a>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <div class="mt-2xl">
+                <a href="{{ config.base_url }}{% if lang == 'fi' %}/fi{% endif %}/blog/" class="btn btn-secondary btn-small">
+                    &larr; {{ trans(key="back_to_blog", lang=lang) }}
+                </a>
+            </div>
+        </div>
+    </div>
+</article>
+{% endblock content %}

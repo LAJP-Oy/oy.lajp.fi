@@ -1,0 +1,55 @@
+<header class="header">
+    <div class="container">
+        <div class="header-inner">
+            <a href="{{ config.base_url }}{% if lang == 'fi' %}/fi{% endif %}/" class="logo">LAJP</a>
+
+            <nav class="nav">
+                <a href="{{ config.base_url }}{% if lang == 'fi' %}/fi{% endif %}/" class="nav-link">
+                    {{ trans(key="nav_home", lang=lang) }}
+                </a>
+                <a href="{{ config.base_url }}{% if lang == 'fi' %}/fi{% endif %}/about/" class="nav-link">
+                    {{ trans(key="nav_about", lang=lang) }}
+                </a>
+                <a href="{{ config.base_url }}{% if lang == 'fi' %}/fi{% endif %}/blog/" class="nav-link">
+                    {{ trans(key="nav_blog", lang=lang) }}
+                </a>
+                <a href="{{ config.base_url }}{% if lang == 'fi' %}/fi{% endif %}/contact/" class="nav-link">
+                    {{ trans(key="nav_contact", lang=lang) }}
+                </a>
+
+                <div class="lang-switcher">
+                    <a href="{{ config.base_url }}{{ current_path | default(value='/') }}"
+                       class="lang-link {% if lang == 'en' %}active{% endif %}">EN</a>
+                    <a href="{{ config.base_url }}/fi{{ current_path | default(value='/') }}"
+                       class="lang-link {% if lang == 'fi' %}active{% endif %}">FI</a>
+                </div>
+            </nav>
+
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.mobile-nav').classList.toggle('open')">
+                &#9776;
+            </button>
+        </div>
+
+        <nav class="mobile-nav">
+            <a href="{{ config.base_url }}{% if lang == 'fi' %}/fi{% endif %}/" class="nav-link">
+                {{ trans(key="nav_home", lang=lang) }}
+            </a>
+            <a href="{{ config.base_url }}{% if lang == 'fi' %}/fi{% endif %}/about/" class="nav-link">
+                {{ trans(key="nav_about", lang=lang) }}
+            </a>
+            <a href="{{ config.base_url }}{% if lang == 'fi' %}/fi{% endif %}/blog/" class="nav-link">
+                {{ trans(key="nav_blog", lang=lang) }}
+            </a>
+            <a href="{{ config.base_url }}{% if lang == 'fi' %}/fi{% endif %}/contact/" class="nav-link">
+                {{ trans(key="nav_contact", lang=lang) }}
+            </a>
+
+            <div class="lang-switcher">
+                <a href="{{ config.base_url }}{{ current_path | default(value='/') }}"
+                   class="lang-link {% if lang == 'en' %}active{% endif %}">EN</a>
+                <a href="{{ config.base_url }}/fi{{ current_path | default(value='/') }}"
+                   class="lang-link {% if lang == 'fi' %}active{% endif %}">FI</a>
+            </div>
+        </nav>
+    </div>
+</header>

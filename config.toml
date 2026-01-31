@@ -1,0 +1,53 @@
+# LAJP Oy Website Configuration
+base_url = "https://oy.lajp.fi"
+title = "LAJP Oy"
+description = "Expert Software Consulting - Specializing in Rust and Nix"
+default_language = "en"
+
+# Compilation settings
+compile_sass = true
+build_search_index = false
+minify_html = true
+
+# Taxonomies for blog
+taxonomies = [
+    { name = "tags", feed = true }
+]
+
+# Syntax highlighting
+[markdown]
+highlighting = { theme = "dracula" }
+
+# English translations (default language)
+[translations]
+nav_home = "Home"
+nav_about = "About"
+nav_contact = "Contact"
+nav_blog = "Blog"
+footer_copyright = "All rights reserved"
+read_more = "Read more"
+posted_on = "Posted on"
+tagged_with = "Tagged with"
+back_to_blog = "Back to blog"
+
+# Finnish
+[languages.fi]
+title = "LAJP Oy"
+description = "Asiantunteva ohjelmistokonsultointi - erikoisalana Rust ja Nix"
+
+[languages.fi.translations]
+nav_home = "Etusivu"
+nav_about = "Tietoa"
+nav_contact = "Yhteystiedot"
+nav_blog = "Blogi"
+footer_copyright = "Kaikki oikeudet pidätetään"
+read_more = "Lue lisää"
+posted_on = "Julkaistu"
+tagged_with = "Avainsanat"
+back_to_blog = "Takaisin blogiin"
+
+[extra]
+author = "LAJP Oy"
+email = "contact@oy.lajp.fi"
+location = "Espoo, Finland"
+github = "https://github.com/LAJP-Oy"
